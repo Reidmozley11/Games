@@ -3,6 +3,7 @@ function love.load()
     target.x = 300
     target.y = 300
     target.radius = 50
+
     color1 = 255;
     color2 = 0;
     color3 = 0;
@@ -29,13 +30,13 @@ function love.draw()
     love.graphics.setFont(gameFont)
     love.graphics.print(score, 0, 0)
 
+    love.graphics.setColor(213,123,213)
+    love.graphics.circle("line", love.mouse.getX(), love.mouse.getY(), 15)
     if timer <= finished then
         color1 = 0
         color2 = 0
         color3 = 0
       
-        love.graphics.setColor(0, 0, 0)
-        love.graphics.rectangle("fill", 250, 250, 2000, 2000)
         love.graphics.setColor(1, 1, 1)
         love.graphics.setFont(gameFont)
         love.graphics.print("You scored: "..score.."\nIn 15 seconds!", 250, 100)
