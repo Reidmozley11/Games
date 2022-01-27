@@ -1,0 +1,21 @@
+{
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.library": [
+        "${3rd}/love2d/library"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.diagnostics.globals": [
+        "number",
+        "distanceBetween",
+        "score",
+        "timer",
+        "target",
+        "gameFont",
+        "color2",
+        "color1",
+        "color3",
+        "finished",
+        "width",
+        "height"
+    ]
+}
