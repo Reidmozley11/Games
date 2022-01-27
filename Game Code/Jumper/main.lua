@@ -7,8 +7,6 @@ function love.load()
     world = wf.newWorld(0, 0)
     love.window.setMode(400, 400)
 
-    
-
     player = {}
     player.collider = world:newBSGRectangleCollider(0, 0, 45, 35, 20)
     player.collider:setFixedRotation(true)
@@ -17,8 +15,8 @@ function love.load()
     player.y = 0
     player.sprite = love.graphics.newImage('sprites/mrant.png')
 
-    world:addCollisionClass('Solid')
-    world:addCollisionClass('Ghost', {ignores = {'Solid'}})
+    world:addCollisionClass('SolidWall')
+    world:addCollisionClass('Ghost', {ignores = {'SolidWall'}})
 
     enemy = {}
     enemy.collider = world:newBSGRectangleCollider(300, 300, 40, 25, 2)
@@ -34,19 +32,19 @@ function love.load()
 
     local topWall = world:newRectangleCollider(0, -400, 400, 400)
     topWall:setType('static')
-    topWall:setCollisionClass('Solid')
+    topWall:setCollisionClass('SolidWall')
 
     local rightWall = world:newRectangleCollider(400, 0, 400, 400)
     rightWall:setType('static')
-    rightWall:setCollisionClass('Solid')
+    rightWall:setCollisionClass('SolidWall')
 
     local botWall = world:newRectangleCollider(0, 400, 400, 400)
     botWall:setType('static')
-    botWall:setCollisionClass('Solid')
+    botWall:setCollisionClass('SolidWall')
 
     local leftWall = world:newRectangleCollider(-400, 0, 400, 400)
     leftWall:setType('static')
-    leftWall:setCollisionClass('Solid')
+    leftWall:setCollisionClass('SolidWall')
 
     timer = 0 
 end
@@ -106,6 +104,5 @@ function love.draw()
     love.graphics.draw(background, 0, 0)
     love.graphics.draw(player.sprite, player.x, player.y)
     love.graphics.draw(enemy.spriteRight, enemy.x, enemy.y)
-    love.graphics.draw(enemy.spriteLeft, 200, 100)
     world:draw()
 end
